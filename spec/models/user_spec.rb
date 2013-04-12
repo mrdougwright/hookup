@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  subject { User.new }
-  let(:doug) { User.new }
-  let(:jane) { User.new }
-  let(:chris) { User.new }
+  subject { User.create }
+  let(:doug) { User.create }
+  let(:jane) { User.create }
+  let(:chris) { User.create }
 
   it { should_not be_nil }
 
@@ -29,4 +29,6 @@ describe User do
   it "returns false if user is not liked" do
   	doug.likes?(chris).should be_false
   end
+
+
 end
