@@ -3,13 +3,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name 
 
   def likes
-    array_likes = Like.where(user_id: self.id)
-    User.where(id: array_likes.collect(&:crush))
+    User.where(id: Like.crush_ids_for(self))
   end
 
   def like(user)
     raise SelfLike if user == self
-    Like.create({ user_id: self.id, crush: user.id })
+    Like.create_link(self, user)
   end
 
   def likes?(user)
