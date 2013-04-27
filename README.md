@@ -1,0 +1,1 @@
+An exercise in TDD. Built tests to start informing the building of models.
